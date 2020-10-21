@@ -6,7 +6,7 @@ email: 282032181@qq.com
 description: "啊哈，骚气的博客"
 keyword: "骚气"
 url: "https://sunshine-k-3p.github.io/blog"              # your host, for absolute URL
-baseurl: "/blog"                            # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: "/blog/img"                            # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
