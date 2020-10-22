@@ -101,12 +101,12 @@ defaults:
       type: posts
     values:
       layout: post
-  -
-    scope:
-      path: ''
-      type: videos
-    values:
-      layout: video
+  # -
+  #   scope:
+  #     path: ''
+  #     type: videos
+  #   values:
+  #     layout: video
 
 # Friends
 friends: [
