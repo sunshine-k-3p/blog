@@ -19,15 +19,11 @@
                     <li>
                         <a href="{{ site.baseurl }}/">Home</a>
                     </li>
+                    {% for page in site.pages %}{% if page.title %}
                     <li>
-                        <a href="https://sunshine-k-3p.github.io/blog/about">about</a>
+                        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
                     </li>
-                    <li>
-                        <a href=https://sunshine-k-3p.github.io/blog/photo">photo</a>
-                    </li>
-                    <li>
-                        <a href="https://sunshine-k-3p.github.io/blog/sharing">sharing</a>
-                    </li>
+                    {% endif %}{% endfor %}
                 </ul>
             </div>
         </div>
