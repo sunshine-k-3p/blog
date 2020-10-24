@@ -118,3 +118,10 @@ friends: [
         href: "https://wblearn.github.io/study-video"
     }
 ]
+
+
+---
+site.pages:
+  -
+    url: www.baidu.com
+    title: demo
