@@ -3,7 +3,7 @@ layout:     post
 title:      "一套Flink实时计算架构设计思路"
 date:       2020-10-25 00:00:00
 author:     "k"
-header-img: "img/post-bg-kuaidi.jpg"
+header-img: "img/post-bg-digital-native.jpg"
 tags:
     - Flink
     - Hadoop
