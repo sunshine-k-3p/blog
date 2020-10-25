@@ -46,29 +46,29 @@ State主要作用是状态存储。
 ##### 1. 概述   
 
 实时数仓基于Flink实时计算引擎搭建，其中使用到了Checkpoint机制、Keyed State机制等等，同时为了实现7 * 24不断线发版，我们基于Redisson实现了幂等操作，为保证开发效率我们做了两方面节省开发时间的事，第一点将7 * 24小时不断线复杂发版逻辑进行了抽象封装，第二点实现数据自动存储或者下发（推送kafka），使开发人员仅需要开发特征指标相关业务而无需关心Flink组件的使用，甚至保证一位Java开发人员（不了解大数据组件的开发人员）可以在此框架中完成业务指标开发任务，降低了对开发人员能力要求。以下是Flink实时计算系统UML图：   
-![demo](flink-frame/1.png)   
+![demo](/blog/_posts/flink-frame/flink-frame/1.png)   
 
 ### 三、系统原理及使用 
 ##### 1. 7 * 24小时不断线发版 
 不断线发版分为新任务发版、扩展并行度发版、新特征发版三种情况，其中较为复杂的是新特征发版。  
 1.1 新任务发版
 针对全新的特征任务发版，可以理解为新事件所对应的新任务的发版。下图是发版的时轴图。  
-![demo](flink-frame/3.png) 
+![demo](/blog/_posts/flink-frame/flink-frame/3.png) 
 其中historyEventTime启动参数是指定处理事件时间之后的数据。    
 1.2 扩展并行度发版  
 针对运行中的任务，数据量增大计算资源需要扩充的情况。下图是发版的时间轴图。
-![demo](flink-frame/4.png)  
+![demo](/blog/_posts/flink-frame/flink-frame/4.png)  
 在job1执行savepoint之后，job2通过savepoint启动较大资源的相同任务，在job1与job2并行的过程中，通过幂等机制来保证数据处理的唯一性。  
 1.3 新特征发版  
 针对在运行任务中有新的特征需要加入的情况。下图是发版的时间轴图。 
-![demo](flink-frame/5.png)
+![demo](/blog/_posts/flink-frame/flink-frame/5.png)
 首先Job1执行savepoint，查看库中maxEventTime（当前处理数据的最新事件时间），然后根据此时间补齐state的历史数据和结果特征库中的历史数据，然后设置该maxEventTime且使用savepoint启动Job2任务（含新特征的任务）。此时两任务并行，数据通过幂等机制来保证数据处理的唯一性。Job2在收到事件时间小于maxEventTime的数据时是拒绝存state和入库操作，在大于maxEventTime之后才存储state和入库操作。  
 当Job1和Job2两个任务处理Kafka数据的位置相近时，杀死Job1任务。
 
 
 ##### 2. 系统提供的设置参数   
 参考类com.kuainiu.realtime.framework.SysConst类，如下图：
-![demo](flink-frame/2.png)  
+![demo](/blog/_posts/flink-frame/flink-frame/2.png)  
 
 ### 四、发展方向  
 ##### 1. 事件特征计算拆解  
