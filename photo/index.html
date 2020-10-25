@@ -25,7 +25,7 @@ layout: default
     <a href='{{ site.baseurl }}{{ video.url }}'>
       <h3>{{ video.title }}</h3>
       <time>{{ video.date | date: '%d %B %Y'}}</time>
-      <img src='/{{ video.cover_id }}' />
+      <img src='/blog/{{ video.cover_id }}' />
     </a>
   </li>
   {% endfor %}
