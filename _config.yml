@@ -12,11 +12,11 @@ baseurl: "/blog"                            # for example, '/blog' if your blog 
 
 # SNS settings
 RSS: false
-weibo_username:     wudalanggd
-csdn_username:     wudalang_gd
-github_username:    wblearn
+weibo_username:     2382685065
+#csdn_username:     wudalang_gd
+github_username:    sunshine-k-3p
 #twitter_username:  wblearn
-jianshu_username:  48599dc7ef1b
+#jianshu_username:  48599dc7ef1b
 # linkedin_username:  firstname-lastname-idxxxx
 
 
@@ -112,9 +112,9 @@ defaults:
 friends: [
     {
         title: "街溜子的微博",
-        href: "http://weibo.com/wudalanggd"
+        href: "http://weibo.com/2382685065"
     },{
-        title: "study video",
-        href: "https://wblearn.github.io/study-video"
+        title: "study document",
+        href: "https://github.com/sunshine-k-3p?tab=repositories"
     }
 ]
