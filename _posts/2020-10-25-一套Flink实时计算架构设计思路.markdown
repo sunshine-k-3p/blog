@@ -5,9 +5,9 @@ date:       2020-10-25 00:00:00
 author:     "k"
 header-img: "img/post-bg-alitrip.jpg"
 tags:
+    - redis
     - Flink
     - Hadoop
-    - 
 ---
 
 ### 一、Flink 提供的机制说明 
