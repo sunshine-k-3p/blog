@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      "Flink Checkpoint机制"
+date:       2020-10-25 00:00:00
+author:     "k"
+header-img: "img/post-bg-alitrip.jpg"
+tags:
+    - Flink
+    - Hadoop
+    - 
+---
+
 flink的checkpoint是由CheckpointCoordinator内部的⼀个timer线程池定时产⽣生的，具体代码由
 ScheduledTrigger这个Runnable类启动。
 1. 环境的前置检查  
